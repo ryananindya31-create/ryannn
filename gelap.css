@@ -1,0 +1,70 @@
+/* --- DEKLARASI VARIABEL WARNA UNTUK TEMA --- */
+
+:root {
+    /* Light Mode Defaults */
+    --primary: #8B4513; /* Cokelat Tua / Batik Accent */
+    --accent: #FFD700; /* Emas */
+    --background-main: #FFFFFF; /* Putih */
+    --background-secondary: #F8F8F8; /* Abu Muda/Background Card */
+    --text-primary: #1C1C1C; /* Hitam Gelap */
+    --text-secondary: #666;
+    --border-color: #E0E0E0;
+    --on-primary: #FFFFFF;
+    --btn-text: #1A1A1A;
+    --input-border: #CCCCCC;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode Override (Aktif ketika class="dark-mode" ada di tag <body>) */
+body.dark-mode {
+    --primary: #B8860B; /* Emas Gelap (aksen) */
+    --accent: #A0522D; /* Cokelat Muda */
+    --background-main: #121212; /* Hampir Hitam */
+    --background-secondary: #1E1E1E; /* Abu Gelap/Background Card */
+    --text-primary: #E0E0E0; /* Putih Muda */
+    --text-secondary: #B0B0B0;
+    --border-color: #333;
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* --- PENERAPAN VARIABEL SECARA GLOBAL --- */
+/* (Anda perlu memastikan seluruh elemen Anda menggunakan variabel ini) */
+
+body {
+    background-color: var(--background-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s; /* Efek transisi yang mulus */
+}
+
+/* Contoh penerapan ke elemen seperti Card, Grid, dll. */
+.card, .gallery-card, .highlight-box {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    color: var(--text-primary);
+}
+
+/* Style untuk Tombol Toggle Mode Gelap */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Decarbonization - Galeri Batik Nusantara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Komitmen galeri virtual batik dalam mencapai keberlanjutan digital dan mengurangi jejak karbon.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="controlPanel" class="control-panel">
+        <button id="backBtn" class="control-btn back-btn" onclick="goBack()" title="Kembali ke halaman sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button id="refreshBtn" class="control-btn refresh-btn" onclick="refreshPage()" title="Refresh halaman">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"></path>
+            </svg>
+        </button>
+        <button id="darkModeToggle" class="control-btn dark-mode-btn" onclick="toggleDarkMode()" title="Mode gelap/terang">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+        <div class="container">
+            <nav>
+                <div class="logo">Galeri Batik Nusantara</div>
+                <ul>
+                    <li><a href="index.html#galeri">Galeri</a></li>
+                    <li><a href="index.html#edukasi">Edukasi Batik</a></li>
+                    <li class="active"><a href="dekarbonisasi.html">Decarbonization</a></li> <li><a href="pengrajin.html">Profil Pengrajin</a></li>
+                    <li><a href="index.html#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Misi Digital Decarbonization</h1>
+                    <p>
+                        Pelestarian budaya melalui teknologi yang bertanggung jawab. Memastikan setiap klik yang Anda lakukan berkontribusi pada planet yang lebih hijau.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#analisis-karbon" class="btn btn-primary">Lihat Analisis Energi</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background-image: url('OIP\ \(4\).jpeg');" aria-label="Ilustrasi energi terbarukan dan server ramah lingkungan"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="analisis-karbon">
+        <div class="section-container">
+            <h2>Komitmen Kami pada Keberlanjutan Digital</h2>
+            
+            <article class="card">
+                <h3>Analisis Energi Alternatif untuk Galeri Batik Virtual</h3>
+                <p>
+                    Menganalisis energi alternatif untuk galeri batik virtual adalah langkah penting menuju
+                    <strong>Digital Decarbonization</strong>—memastikan bahwa pameran budaya digital,
+                    yang seharusnya berkelanjutan, tidak secara tidak sengaja meningkatkan jejak karbon.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Fokus utama:</strong> mengurangi emisi dari infrastruktur digital
+                    (server, jaringan, dan perangkat pengguna) melalui pemilihan teknologi yang lebih efisien dan bersih.
+                </div>
+
+                <h4>1. Pemilihan Hosting dengan Energi Terbarukan</h4>
+                <p>
+                    Pemilihan penyedia hosting yang didukung energi terbarukan (misalnya tenaga surya, angin,
+                    atau hidro) adalah langkah paling langsung dan signifikan. Dengan demikian, energi listrik
+                    yang digunakan untuk menjalankan server, menyimpan data, dan melayani permintaan pengunjung
+                    berasal dari sumber yang rendah emisi karbon.
+                </p>
+
+                <h4>2. Optimasi Sumber Daya Digital</h4>
+                <ul class="list">
+                    <li>
+                        <strong>Kompresi gambar & media:</strong> Mengurangi ukuran file gambar batik sehingga
+                        menghemat bandwidth dan energi pemrosesan.
+                    </li>
+                    <li>
+                        <strong>Teknik lazy loading:</strong> Gambar hanya dimuat ketika pengguna menggulir ke area tersebut,
+                        sehingga tidak terjadi pemakaian energi berlebihan.
+                    </li>
+                    <li>
+                        <strong>Kode yang ringan:</strong> Mengurangi skrip yang tidak perlu, meminimalkan animasi berat,
+                        dan mengoptimalkan struktur HTML/CSS.
+                    </li>
+                </ul>
+                
+                <div id="carbon-calculator" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px dashed var(--accent); border-radius: 6px;">
+                    <h4>Hitung Jejak Karbon Kunjungan Anda 🌿</h4>
+                    <p>Kalkulator sederhana ini mengestimasi energi yang Anda gunakan untuk mengakses galeri (berdasarkan rata-rata waktu kunjungan dan data transfer).</p>
+
+                    <div class="form-group-kalkulator">
+                        <label for="waktu-kunjungan">1. Perkiraan Waktu Kunjungan (Menit):</label>
+                        <input type="number" id="waktu-kunjungan" value="5" min="1" max="60">
+                    </div>
+                    <div class="form-group-kalkulator">
+                        <label for="data-transfer">2. Perkiraan Data yang Ditransfer (MB):</label>
+                        <input type="number" id="data-transfer" value="10" min="1" max="100">
+                    </div>
+
+                    <button onclick="hitungKarbon()" class="btn btn-primary" style="margin-top: 15px;">Hitung Jejak Karbon</button>
+
+                    <div id="hasil-karbon" class="highlight-box" style="margin-top: 20px; display: none;">
+                        </div>
+                </div>
+                <h4>3. Infrastruktur Pendukung Hijau</h4>
+                <ul class="list">
+                    <li>
+                        <strong>CDN ramah lingkungan:</strong> Menggunakan jaringan distribusi konten yang juga
+                        berkomitmen pada energi terbarukan untuk menurunkan energi per permintaan.
+                    </li>
+                    <li>
+                        <strong>Monitoring jejak karbon digital:</strong> Memanfaatkan alat pengukur
+                        intensitas karbon website untuk evaluasi berkala.
+                    </li>
+                </ul>
+
+                <h4>4. Kesimpulan</h4>
+                <p>
+                    Dengan menggabungkan pemilihan hosting berbasis energi terbarukan, optimasi teknis,
+                    dan desain web yang efisien, galeri batik virtual dapat menjadi contoh nyata
+                    bagaimana pelestarian budaya dan pengurangan emisi karbon berjalan berdampingan
+                    dalam semangat <em>Digital Decarbonization</em>.
+                </p>
+            </article>
+            
+        </div>
+    </section>
+    
+    <section id="strategi-teknis" class="section-light">
+        <div class="section-container">
+            <h2>Strategi Teknis Pengurangan Emisi</h2>
+            <div class="three-column">
+                
+                <article class="card">
+                    <h3>Hosting Energi Terbarukan</h3>
+                    <p>Kami bermitra dengan penyedia layanan server yang 100% didukung oleh energi terbarukan (surya dan angin) untuk memastikan jejak karbon server kami minimum. </p>
+                    <p>Tujuan: **Reduksi 70% Emisi Server**</p>
+                </article>
+
+                <article class="card">
+                    <h3>Optimasi Data & Transfer</h3>
+                    <p>Semua gambar batik di galeri dikompresi menggunakan format generasi baru (WebP) dan dilayani melalui Content Delivery Network (CDN) yang efisien, mengurangi energi transfer data hingga 40%.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Desain Web Ringan</h3>
+                    <p>Penggunaan skrip minimal, CSS/HTML yang dioptimasi, dan penerapan *dark mode* opsional untuk layar OLED/AMOLED, yang secara kolektif mengurangi konsumsi energi pada perangkat pengguna.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div>&copy; 2025 Galeri Batik Nusantara Virtual.</div>
+                <div>Pelestarian budaya melalui teknologi yang bertanggung jawab terhadap lingkungan.</div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#galeri">Galeri</a>
+                <a href="dekarbonisasi.html">Digital Decarbonization</a>
+                <a href="pengrajin.html">Profil Pengrajin</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // --- FUNGSI Kalkulator Karbon ---
+        function hitungKarbon() {
+            // Ambil nilai input dari pengguna
+            const waktu = parseFloat(document.getElementById('waktu-kunjungan').value) || 0;
+            const data = parseFloat(document.getElementById('data-transfer').value) || 0;
+            const hasilDiv = document.getElementById('hasil-karbon');
+            
+            // Konstanta & Asumsi untuk Perhitungan Digital Decarbonization
+            const ENERGY_PER_MINUTE = 0.0001; // kWh per menit browsing (estimasi)
+            const ENERGY_PER_MB = 0.002; // kWh per 1MB data transfer (estimasi)
+            // Emisi Karbon rata-rata (kg CO2e/kWh) *SETELAH* Decarbonization
+            const DECARBONIZED_EMISSION_FACTOR_KG = 0.7 * 0.3; // 0.21 kg/kWh
+            
+            // 1. Hitung Total Energi
+            const energyBrowsing = waktu * ENERGY_PER_MINUTE; // kWh
+            const energyData = data * ENERGY_PER_MB; // kWh
+            const totalEnergy = energyBrowsing + energyData; // kWh
+            
+            // 2. Hitung Jejak Karbon (dikonversi ke gram)
+            const jejakKarbon = totalEnergy * DECARBONIZED_EMISSION_FACTOR_KG * 1000; // gram CO2e
+
+            // Tampilkan Hasil
+            hasilDiv.style.display = "block";
+            hasilDiv.innerHTML = `
+                <strong>Hasil Estimasi:</strong>
+                <ul>
+                    <li>Total Energi yang Digunakan: **${totalEnergy.toFixed(4)} kWh**</li>
+                    <li>Jejak Karbon Anda (setelah Reduksi Galeri): **${jejakKarbon.toFixed(2)} gram CO2e**</li>
+                </ul>
+                <p style="font-size: 0.8em; color: var(--text-secondary);">
+                    *Perhitungan ini mencerminkan komitmen galeri terhadap <em>Digital Decarbonization</em> (reduksi emisi 70% dari faktor emisi standar).
+                </p>
+            `;
+        }
+        // --- AKHIR FUNGSI Kalkulator Karbon ---
+
+        /* ==================== DARK MODE TOGGLE ==================== */
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            
+            // Update icon SVG
+            const toggleBtn = document.getElementById('darkModeToggle');
+            if (toggleBtn) {
+                const sunIcon = toggleBtn.querySelector('.sun-icon');
+                const moonIcon = toggleBtn.querySelector('.moon-icon');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    if (sunIcon) sunIcon.style.display = 'none';
+                    if (moonIcon) moonIcon.style.display = 'block';
+                } else {
+                    if (sunIcon) sunIcon.style.display = 'block';
+                    if (moonIcon) moonIcon.style.display = 'none';
+                }
+            }
+        }
+
+        // Check dark mode preference saat load
+        window.addEventListener('load', () => {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                const toggleBtn = document.getElementById('darkModeToggle');
+                if (toggleBtn) {
+                    const sunIcon = toggleBtn.querySelector('.sun-icon');
+                    const moonIcon = toggleBtn.querySelector('.moon-icon');
+                    if (sunIcon) sunIcon.style.display = 'none';
+                    if (moonIcon) moonIcon.style.display = 'block';
+                }
+            }
+        });
+
+        // Refresh & Back button functionality
+        function refreshPage() {
+            window.location.reload(true);
+        }
+
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

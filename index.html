@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title> Galeri Kain Batik Virtual & Digital Decarbonization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Galeri batik virtual yang menampilkan ragam batik Nusantara dengan komitmen pada keberlanjutan dan Digital Decarbonization.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="controlPanel" class="control-panel">
+        <button id="backBtn" class="control-btn back-btn" onclick="goBack()" title="Kembali ke halaman sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button id="refreshBtn" class="control-btn refresh-btn" onclick="refreshPage()" title="Refresh halaman">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"></path>
+            </svg>
+        </button>
+        <button id="darkModeToggle" class="control-btn dark-mode-btn" onclick="toggleDarkMode()" title="Mode gelap/terang">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <header id="beranda">
+        <div class="container">
+            <nav>
+                <div class="logo">Galeri Batik Nusantara</div>
+                <ul>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#edukasi">Edukasi Batik</a></li>
+                    <li><a href="#energi">Energi Alternatif</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Galeri Kain Batik Virtual</h1>
+                    <p>
+                        Menjelajahi ragam batik Nusantara melalui pengalaman digital yang imersif,
+                        sekaligus berkomitmen pada keberlanjutan dan <em>Digital Decarbonization</em>.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#galeri" class="btn btn-primary">Jelajahi Galeri</a>
+                        <a href="#energi" class="btn btn-outline">Lihat Analisis Energi</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background-image: url('OIP\ \(5\).jpeg');" aria-label="Ilustrasi galeri batik virtual"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="galeri">
+        <div class="section-container">
+            <h2>Galeri Batik</h2>
+            <p class="section-subtitle">
+                Ragam motif, warna, dan filosofi batik dari berbagai daerah di Indonesia
+                dalam satu ruang pamer virtual.
+            </p>
+
+           <div class="filter-bar">
+    <label for="filter-daerah">Filter daerah:</label>
+    <select id="filter-daerah" name="daerah">
+        <option value="">Semua daerah</option>
+        <option value="pekalongan">Pekalongan</option>
+        <option value="solo">Solo</option>
+        <option value="yogyakarta">Yogyakarta</option>
+        <option value="madura">Madura</option>
+        <option value="papua">Papua</option>
+    </select>
+
+    <label for="filter-teknik">Teknik:</label>
+    <select id="filter-teknik" name="teknik">
+        <option value="">Semua teknik</option>
+        <option value="tulis">Tulis</option>
+        <option value="cap">Cap</option>
+        <option value="kombinasi">Kombinasi</option>
+    </select>
+
+    <label for="search-motif">Cari motif:</label>
+    <input id="search-motif" type="text" placeholder="Contoh: parang, kawung, mega mendung">
+</div>
+
+<div id="data-container">
+    </div>
+
+            <div class="gallery-grid">
+                <article class="gallery-card" data-daerah="cirebon" data-teknik="cap" onclick="openModal('mega')">
+                    <div class="gallery-image" style="background-image: url('OIP.jpeg')"></div>
+                    <div class="gallery-content">
+
+                        <div class="gallery-title">Batik Mega Mendung</div>
+                        <div class="gallery-meta">Asal: Cirebon • Teknik: Cap</div>
+                        <div class="gallery-desc">
+                            Motif awan bertumpuk yang melambangkan keteduhan, kesabaran, dan pengendalian diri.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-daerah="papua" data-teknik="kombinasi" onclick="openModal('papua')">
+                    <div class="gallery-image" style="background-image: url('OIP\ \(1\).jpeg')"></div>
+                    <div class="gallery-content">
+                        <div class="gallery-title">Batik Papua Kontemporer</div>
+                        <div class="gallery-meta">Asal: Papua • Teknik: Kombinasi</div>
+                        <div class="gallery-desc">
+                            Menggabungkan motif etnik Papua dengan sentuhan modern dan warna-warna cerah.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-daerah="solo" data-teknik="tulis" onclick="openModal('parang')">
+                    <div class="gallery-image" style="background-image: url('batik.jpeg')"></div>
+                    <div class="gallery-content">
+                        <div class="gallery-title">Batik Parang Rusak</div>
+                        <div class="gallery-meta">Asal: Solo • Teknik: Tulis</div>
+                        <div class="gallery-desc">
+                            Motif klasik yang melambangkan kesinambungan, kekuatan, dan tekad yang tak terputus.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-daerah="madura" data-teknik="tulis" onclick="openModal('gentongan')">
+                    <div class="gallery-image" style="background-image: url('288094-batik-madura-motif-gentongan.jpeg')"></div>
+                    <div class="gallery-content">
+                        <div class="gallery-title">Batik Motif Gentongan</div>
+                        <div class="gallery-meta">Asal: Madura • Teknik: Tulis</div>
+                        <div class="gallery-desc">
+                            Dikenal dengan warna-warna berani dan kontras, mencerminkan karakter kuat masyarakat Madura.
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="edukasi">
+        <div class="section-container">
+            <h2>Edukasi Batik</h2>
+            <p class="section-subtitle">
+                Memahami batik tidak hanya dari keindahan visual, tetapi juga dari sejarah, teknik,
+                serta nilai budaya yang dikandungnya.
+            </p>
+
+            <div class="one-column
+                <div>
+                    <article class="card">
+                        <h3>Sejarah Singkat Batik Indonesia</h3>
+                        <p>
+                            Batik telah menjadi bagian penting dari kebudayaan Indonesia selama berabad-abad.
+                            Dahulu batik banyak digunakan di lingkungan keraton, kemudian menyebar ke masyarakat luas
+                            dan berkembang menjadi ragam gaya di berbagai daerah.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Teknik Pembuatan Batik</h3>
+                        <ul class="list">
+                            <li><strong>Batik Tulis:</strong> Menggunakan canting dan malam (lilin) secara manual di atas kain.</li>
+                            <li><strong>Batik Cap:</strong> Menggunakan cap tembaga bermotif untuk mempercepat proses pembuatan.</li>
+                            <li><strong>Batik Kombinasi:</strong> Menggabungkan kedua teknik untuk detail dan efisiensi.</li>
+                        </ul>
+                        <p>
+                            Setiap teknik memiliki karakter visual, tingkat kerumitan, dan nilai ekonomi yang berbeda.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Makna Simbolik Motif Batik</h3>
+                        <p>
+                            Motif-motif klasik seperti parang, kawung, atau lereng bukan sekadar ornamen,
+                            tetapi mengandung doa, harapan, dan filosofi hidup. Dalam konteks modern,
+                            batik juga menjadi media ekspresi identitas dan kreativitas.
+                        </p>
+                    </article>
+                </div>
+
+                <aside id="energi">
+                    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Kain Batik Virtual & Digital Decarbonization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Galeri batik virtual yang menampilkan ragam batik Nusantara dengan komitmen pada keberlanjutan dan Digital Decarbonization.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+    <header id="beranda">
+        <div class="container">
+            <nav>
+                <div class="logo">Galeri Batik Nusantara</div>
+                <ul>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#edukasi">Edukasi Batik</a></li>
+                    <li><a href="dekarbonisasi.html">Decarbonization</a></li>
+                    <li><a href="pengrajin.html">Profil Pengrajin</a></li>
+                    
+                </ul>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Galeri Kain Batik Virtual</h1>
+                    <p>
+                        Menjelajahi ragam batik Nusantara melalui pengalaman digital yang imersif,
+                        sekaligus berkomitmen pada keberlanjutan dan <em>Digital Decarbonization</em>.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#galeri" class="btn btn-primary">Jelajahi Galeri</a>
+                        <a href="dekarbonisasi.html" class="btn btn-outline">Lihat Analisis Energi</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background-image: url('OIP\ \(7\).jpeg');" aria-label="Ilustrasi galeri batik virtual"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="galeri">
+        </section>
+
+    <section id="edukasi">
+        <div class="section-container">
+            <h2></h2>
+            <div class="one-column">
+                <div>
+                    </div>
+
+                <aside id="energi">
+                    <article class="card">
+                        <h3>Analisis Energi Alternatif & Digital Decarbonization</h3>
+                        <p>
+                            Kami mengintegrasikan prinsip keberlanjutan digital dengan memilih hosting yang didukung 100% energi terbarukan dan optimasi data.
+                        </p>
+
+                        <div id="carbon-calculator" style="margin-top: 160x; padding: 90px; border: 10px dashed var(--accent); border-radius: 24px;">
+                            <h4>Hitung Jejak Karbon Kunjungan Anda 🌿</h4>
+                            <p style="font-size: 0.9em;">Estimasi berdasarkan rata-rata waktu kunjungan dan data transfer.</p>
+
+                            <div class="form-group-kalkulator">
+                                <label for="waktu-kunjungan">1. Perkiraan Waktu Kunjungan (Menit):</label>
+                                <input type="number" id="waktu-kunjungan" value="5" min="1" max="60">
+                            </div>
+                            <div class="form-group-kalkulator">
+                                <label for="data-transfer">2. Perkiraan Data yang Ditransfer (MB):</label>
+                                <input type="number" id="data-transfer" value="10" min="1" max="100">
+                            </div>
+
+                            <button onclick="hitungKarbon()" class="btn btn-primary" style="margin-top: 15px;">Hitung Jejak Karbon</button>
+
+                            <div id="hasil-karbon" class="highlight-box" style="margin-top: 20px; display: none;">
+                                </div>
+                        </div>
+                        <p style="margin-top: 25px;">
+                            <a href="dekarbonisasi.html" class="btn btn-outline">Lihat Detail Strategi Decarbonization →</a>
+                        </p>
+                    </article>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+        </section>
+ <div id="batikModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <h4 id="modal-makna-title">Filosofi dan Makna</h4>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <script>
+        // Data pengenalan batik (diperlukan untuk fungsi openModal)
+        const batikinfo= {
+            parang: {
+                title: "Batik Parang Rusak",
+                desc: "Motif Parang melambangkan kesinambungan, kekuatan, dan tekad. Digunakan sejak zaman kerajaan sebagai simbol kepemimpinan.",
+            },
+            mega: {
+                title: "Batik Mega Mendung",
+                desc: "Motif Mega Mendung dari Cirebon menggambarkan awan bertumpuk, melambangkan keteduhan, kesabaran, dan pengendalian diri."
+            },
+            gentongan: {
+                title: "Batik Motif Gentongan",
+                desc: "Motif dari Madura yang khas dengan warna berani, dihasilkan dari proses perendaman gentong yang lama."
+            },
+            papua: {
+                title: "Batik Papua Kontemporer",
+                desc: "Motif modern yang mengadaptasi ukiran Asmat dan fauna lokal seperti Cendrawasih, sering menggunakan warna cerah."
+            }
+        };
+
+        function openModal(key) {
+            document.getElementById("modal-title").innerText = batikInfo[key].title;
+            document.getElementById("modal-desc").innerText = batikInfo[key].desc;
+            document.getElementById("batikModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("batikModal").style.display = "none";
+        }
+
+        // Tutup modal jika klik di luar konten
+        window.onclick = function(event) {
+            const modal = document.getElementById("batikModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // --- FUNGSI Kalkulator Karbon (Koreksi Kekurangan 4) ---
+        function hitungKarbon() {
+            const waktu = parseFloat(document.getElementById('waktu-kunjungan').value) || 0;
+            const data = parseFloat(document.getElementById('data-transfer').value) || 0;
+            const hasilDiv = document.getElementById('hasil-karbon');
+            
+            // Konstanta & Asumsi
+            const ENERGY_PER_MINUTE = 0.0001; 
+            const ENERGY_PER_MB = 0.002; 
+            const DECARBONIZED_EMISSION_FACTOR_KG = 0.7 * 0.3; // 0.21 kg/kWh
+            
+            // Perhitungan
+            const energyBrowsing = waktu * ENERGY_PER_MINUTE; // kWh
+            const energyData = data * ENERGY_PER_MB; // kWh
+            const totalEnergy = energyBrowsing + energyData; // kWh
+            const jejakKarbon = totalEnergy * DECARBONIZED_EMISSION_FACTOR_KG * 1000; // gram CO2e
+
+            // Tampilkan Hasil
+            hasilDiv.style.display = "block";
+            hasilDiv.innerHTML = `
+                <strong>Hasil Estimasi:</strong>
+                <ul>
+                    <li>Total Energi yang Digunakan: **${totalEnergy.toFixed(4)} kWh**</li>
+                    <li>Jejak Karbon Anda (setelah Reduksi Galeri): **${jejakKarbon.toFixed(2)} gram CO2e**</li>
+                </ul>
+                <p style="font-size: 0.8em; color: var(--text-secondary);">
+                    *Perhitungan ini mencerminkan komitmen galeri terhadap Decarbonization.
+                </p>
+            `;
+        }
+        // --- AKHIR FUNGSI Kalkulator Karbon ---
+    </script>
+</body>
+</html>
+    </aside>
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Decarbonization - Galeri Batik Nusantara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Komitmen galeri virtual batik dalam mencapai keberlanjutan digital dan mengurangi jejak karbon.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="beranda">
+        <div class="container">
+            <nav>
+                <div class="logo">Galeri Batik Nusantara</div>
+                <ul>
+                    <li><a href="index.html#galeri">Galeri</a></li>
+                    <li><a href="index.html#edukasi">Edukasi Batik</a></li>
+                    <li><a href="dekarbonisasi.html">Decarbonization</a></li>
+                    <li><a href="pengrajin.html">Profil Pengrajin</a></li>
+                    <li><a href="index.html#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Misi Digital Decarbonization</h1>
+                    <p>
+                        Pelestarian budaya melalui teknologi yang bertanggung jawab. Memastikan setiap klik yang Anda lakukan berkontribusi pada planet yang lebih hijau.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#analisis-karbon" class="btn btn-primary">Lihat Analisis</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background-image: url('OIP\ \(6\).jpeg');" aria-label="Ilustrasi energi terbarukan dan server ramah lingkungan"></div>
+            </div>
+        </div>
+    </header>
+    <section id="analisis-karbon">
+        <div class="section-container">
+            <h2>Komitmen Kami pada Keberlanjutan Digital</h2>
+            <p class="section-subtitle">
+                Kami berkomitmen menerapkan praktik ramah lingkungan di seluruh operasi digital kami —
+                mulai dari pemilihan hosting yang menggunakan energi terbarukan, optimasi konten dan gambar,
+                hingga desain web ringan yang mengurangi penggunaan daya pada perangkat pengunjung.
+            </p>
+
+            <p>
+                Untuk mewujudkan komitmen ini, kami menerapkan beberapa inisiatif teknis dan operasional:
+            </p>
+
+            <ul class="list">
+                <li><strong>Hosting Energi Terbarukan:</strong> Server dan CDN yang didukung oleh energi surya/angin.</li>
+                <li><strong>Optimasi Konten:</strong> Kompresi gambar, penggunaan WebP, dan CDN untuk mengurangi transfer data.</li>
+                <li><strong>Desain Hemat Energi:</strong> CSS minimal, aset ter-cache, dan opsi dark mode untuk layar OLED.</li>
+                <li><strong>Monitoring & Audit:</strong> Pengukuran berkala untuk memperbarui target reduksi emisi dan performa.</li>
+            </ul>
+
+            <div class="three-column" data-counter-section>
+                <article class="card">
+                    <h3><span data-count="70">0</span>%</h3>
+                    <p>Target reduksi emisi server</p>
+                </article>
+
+                <article class="card">
+                    <h3><span data-count="40">0</span>%</h3>
+                    <p>Pengurangan energi transfer data melalui optimasi</p>
+                </article>
+
+                <article class="card">
+                    <h3><span data-count="100">0</span>%</h3>
+                    <p>Komitmen penggunaan hosting energi terbarukan</p>
+                </article>
+            </div>
+
+            <p class="section-note">
+                Catatan: Angka di atas merupakan target dan estimasi; nilai akan diperbarui berdasarkan audit dan peningkatan infrastruktur.
+            </p>
+        </div>
+    </section>
+
+    <section id="strategi-teknis">
+        <div class="section-container">
+            <h2>Strategi Teknis Pengurangan Emisi</h2>
+            <div class="three-column">
+                
+                <article class="card">
+                    <h3>Hosting Energi Terbarukan</h3>
+                    <p>Kami bermitra dengan penyedia layanan server yang 100% didukung oleh energi terbarukan (surya dan angin) untuk memastikan jejak karbon server kami minimum. </p>
+                    <p>Tujuan: **Reduksi 70% Emisi Server**</p>
+                    
+                </article>
+
+                <article class="card">
+                    <h3>Optimasi Data & Transfer</h3>
+                    <p>Semua gambar batik di galeri dikompresi menggunakan format generasi baru (WebP) dan dilayani melalui Content Delivery Network (CDN) yang efisien, mengurangi energi transfer data hingga 40%.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Desain Web Ringan</h3>
+                    <p>Penggunaan skrip minimal, CSS/HTML yang dioptimasi, dan penerapan *dark mode* opsional untuk layar OLED/AMOLED, yang secara kolektif mengurangi konsumsi energi pada perangkat pengguna.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+     <script>
+        // ... Pindahkan fungsi hitungKarbon() ke sini ...
+    </script>
+</body>
+</html>  
+                    </article>
+                </aside>
+            </div>
+        </div>
+    </section>
+        <div class="section-container">
+            <h2>Kontak & Kolaborasi</h2>
+            <p class="section-subtitle">
+                Terbuka untuk kolaborasi dengan pengrajin batik, komunitas kreatif, dan institusi yang peduli
+                pada pelestarian budaya dan keberlanjutan digital.
+            </p>
+
+            <form>
+                <div>
+                    <label for="nama">Nama</label>
+                    <input id="nama" type="text" name="nama" placeholder="Nama lengkap Anda">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="Alamat email aktif">
+                </div>
+                <div>
+                    <label for="pesan">Pesan / Ide Kolaborasi</label>
+                    <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan atau ide kolaborasi Anda"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div>&copy; 2025 Galeri Batik Nusantara Virtual.</div>
+                <div>Pelestarian budaya melalui teknologi yang bertanggung jawab terhadap lingkungan.</div>
+            </div>
+            <div class="footer-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#galeri">Galeri</a>
+                <a href="#edukasi">Edukasi</a>
+                <a href="#energi">Digital Decarbonization</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="batikModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <script>
+        // Data pengenalan batik (diperlukan untuk fungsi openModal)
+        const batikInfo = {
+    parang: {
+        title: "Batik Parang Rusak",
+        desc: "Motif Parang melambangkan kesinambungan, kekuatan, dan tekad. Digunakan sejak zaman kerajaan sebagai simbol kepemimpinan.",
+        image_url: "OIP (1).jpeg", // Tambahkan URL gambar resolusi tinggi
+        makna_filosofi: "Motif ombak diagonal yang melambangkan kekuatan raja dan semangat perjuangan tanpa putus.",
+        video_url: "https://www.youtube.com/embed/contohvideo", // Tambahkan URL embed YouTube (opsional)
+        link_detail: "https://example.com/parang-detail" // Link ke detail yang lebih panjang jika diperlukan
+            },
+            mega: {
+                title: "Batik Mega Mendung",
+                desc: "Motif Mega Mendung dari Cirebon menggambarkan awan bertumpuk, melambangkan keteduhan, kesabaran, dan pengendalian diri."
+            },
+            gentongan: {
+                title: "Batik Motif Gentongan",
+                desc: "Motif dari Madura yang khas dengan warna berani, dihasilkan dari proses perendaman gentong yang lama."
+            },
+            papua: {
+                title: "Batik Papua Kontemporer",
+                desc: "Motif modern yang mengadaptasi ukiran Asmat dan fauna lokal seperti Cendrawasih, sering menggunakan warna cerah."
+            }
+        };
+
+        function openModal(key) {
+            document.getElementById("modal-title").innerText = batikInfo[key].title;
+            document.getElementById("modal-desc").innerText = batikInfo[key].desc;
+            document.getElementById("batikModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("batikModal").style.display = "none";
+        }
+
+        // Tutup modal jika klik di luar konten
+        window.onclick = function(event) {
+            const modal = document.getElementById("batikModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
+<div id="batikModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title"></h3>
+        <div id="modal-image-container">
+            </div>
+
+        <h4>Deskripsi Singkat</h4>
+        <p id="modal-desc"></p>
+
+        <h4 id="modal-makna-title">Filosofi dan Makna</h4>
+        <p id="modal-makna"></p>
+
+    </div>
+</div>
+<div id="batikModal" class="modal">
+        </div>
+
+    <script>
+        // --- Dark Mode Logic ---
+
+        // Fungsi untuk memeriksa dan menerapkan mode saat halaman dimuat
+        function checkDarkMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            const body = document.body;
+            const toggleBtn = document.getElementById('darkModeToggle');
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '🌙'; // Tampilkan ikon bulan jika mode gelap aktif
+            } else {
+                body.classList.remove('dark-mode');
+                toggleBtn.innerHTML = '☀️'; // Tampilkan ikon matahari jika mode terang aktif
+            }
+        }
+        
+        // Fungsi untuk mengaktifkan/menonaktifkan mode gelap
+        function toggleDarkMode() {
+            const body = document.body;
+            const toggleBtn = document.getElementById('darkModeToggle');
+            
+            // Toggle class dark-mode pada body
+            body.classList.toggle('dark-mode');
+
+            // Cek status dan simpan ke localStorage
+            const isDarkModeActive = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkModeActive);
+
+            // Ganti ikon
+            toggleBtn.innerHTML = isDarkModeActive ? '🌙' : '☀️';
+        }
+        
+        // Panggil fungsi checkDarkMode saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', checkDarkMode);
+
+
+        // --- Fungsi Kalkulator Karbon (Agar tidak error) ---
+        function hitungKarbon() {
+            const waktu = parseFloat(document.getElementById('waktu-kunjungan').value) || 0;
+            const data = parseFloat(document.getElementById('data-transfer').value) || 0;
+            const hasilDiv = document.getElementById('hasil-karbon');
+            
+            const ENERGY_PER_MINUTE = 0.0001; 
+            const ENERGY_PER_MB = 0.002; 
+            const DECARBONIZED_EMISSION_FACTOR_KG = 0.7 * 0.3; 
+            
+            const energyBrowsing = waktu * ENERGY_PER_MINUTE;
+            const energyData = data * ENERGY_PER_MB;
+            const totalEnergy = energyBrowsing + energyData; 
+            const jejakKarbon = totalEnergy * DECARBONIZED_EMISSION_FACTOR_KG * 1000;
+
+            hasilDiv.style.display = "block";
+            hasilDiv.innerHTML = `
+                <strong>Hasil Estimasi:</strong>
+                <ul>
+                    <li>Total Energi yang Digunakan: **${totalEnergy.toFixed(4)} kWh**</li>
+                    <li>Jejak Karbon Anda (setelah Reduksi Galeri): **${jejakKarbon.toFixed(2)} gram CO2e**</li>
+                </ul>
+                <p style="font-size: 0.8em; color: var(--text-secondary);">
+                    *Perhitungan ini mencerminkan komitmen galeri terhadap Decarbonization.
+                </p>
+            `;
+        }
+
+        // --- Data & Fungsi Modal (Sudah ada di file Anda, dikembalikan agar tidak hilang) ---
+        const batikinfoo = {
+            parang: {
+                title: "Batik Parang Rusak",
+                desc: "Motif Parang melambangkan kesinambungan, kekuatan, dan tekad. Digunakan sejak zaman kerajaan sebagai simbol kepemimpinan."
+            },
+            mega: {
+                title: "Batik Mega Mendung",
+                desc: "Motif Mega Mendung dari Cirebon menggambarkan awan bertumpuk, melambangkan keteduhan, kesabaran, dan pengendalian diri."
+            },
+            gentongan: {
+                title: "Batik Motif Gentongan",
+                desc: "Motif dari Madura yang khas dengan warna berani, dihasilkan dari proses perendaman gentong yang lama."
+            },
+            papua: {
+                title: "Batik Papua Kontemporer",
+                desc: "Motif modern yang mengadaptasi ukiran Asmat dan fauna lokal seperti Cendrawasih, sering menggunakan warna cerah."
+            }
+        };
+
+        function openModal(key) {
+            document.getElementById("modal-title").innerText = batikInfo[key].title;
+            document.getElementById("modal-desc").innerText = batikInfo[key].desc;
+            document.getElementById("batikModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("batikModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("batikModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

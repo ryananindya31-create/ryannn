@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Pengrajin - Galeri Batik Nusantara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kisah para pengrajin batik Nusantara dan komitmen mereka pada keberlanjutan pewarna alami dan proses ramah lingkungan.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div id="controlPanel" class="control-panel">
+        <button id="backBtn" class="control-btn back-btn" onclick="goBack()" title="Kembali ke halaman sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button id="refreshBtn" class="control-btn refresh-btn" onclick="refreshPage()" title="Refresh halaman">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"></path>
+            </svg>
+        </button>
+        <button id="darkModeToggle" class="control-btn dark-mode-btn" onclick="toggleDarkMode()" title="Mode gelap/terang">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+        <div class="container">
+            <nav>
+                <div class="logo">Galeri Batik Nusantara</div>
+                <ul>
+                    <li><a href="index.html#galeri">Galeri</a></li>
+                    <li><a href="index.html#edukasi">Edukasi Batik</a></li>
+                    <li><a href="dekarbonisasi.html">Decarbonization</a></li>
+                    <li class="active"><a href="pengrajin.html">Profil Pengrajin</a></li>
+                    <li><a href="index.html#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Mengenal Sosok di Balik Canting</h1>
+                    <p>
+                        Kisah inspiratif para Maestro Batik, yang melestarikan warisan budaya melalui dedikasi dan praktik membatik yang berkelanjutan.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#maestro" class="btn btn-primary">Temui Mereka</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="background-image: url('OIP (2).jpeg');" aria-label="Ilustrasi tangan pengrajin sedang membatik dengan canting"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="maestro">
+        <div class="section-container">
+            <h2>Maestro Batik Unggulan</h2>
+            <p class="section-subtitle">
+                Kami bangga bekerja sama dengan pengrajin yang menjunjung tinggi kualitas, filosofi, dan proses produksi yang ramah lingkungan.
+            </p>
+
+            <div class="gallery-grid" id="profile-grid">
+                
+                <article class="profile-card">
+                    <div class="profile-photo" style="background-image: url('foto-siti.jpg');"></div>
+                    <div class="profile-content">
+                        <h3>Ibu Siti Maryam</h3>
+                        <div class="profile-meta">Asal: Pekalongan • Teknik: Tulis</div>
+                        <p>
+                            Ibu Siti adalah spesialis pewarna alami yang menghasilkan nuansa indigo dan soga murni. Beliau menggunakan teknik penanaman dan pengolahan daun indigo yang minim air dan bebas bahan kimia.
+                        </p>
+                        <a href="#detail-siti" class="btn btn-outline">Kisah Selengkapnya</a>
+                    </div>
+                </article>
+
+                <article class="profile-card">
+                    <div class="profile-photo" style="background-image: url('foto-budi.jpg');"></div>
+                    <div class="profile-content">
+                        <h3>Bapak Budi Santoso</h3>
+                        <div class="profile-meta">Asal: Yogyakarta • Teknik: Kombinasi</div>
+                        <p>
+                            Pak Budi terkenal dengan motif Parang yang presisi dan rumit. Komitmen lingkungannya terlihat dari daur ulang air limbah pembatikan dan penggunaan lilin (malam) organik.
+                        </p>
+                        <a href="#detail-budi" class="btn btn-outline">Kisah Selengkapnya</a>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section id="sustainability-practices" class="section-light">
+        <div class="section-container">
+            <h2>🌱 Keberlanjutan dalam Proses Batik</h2>
+            
+            <div class="two-column">
+                <div class="card">
+                    <h3>Pewarna Alami</h3>
+                    <ul class="list">
+                        <li>Menggunakan ekstrak daun **Indigofera** (biru) dan kulit kayu **Soga Tingi** (cokelat).</li>
+                        <li>Mengurangi pencemaran air dan paparan zat berbahaya.</li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="card">
+                    <h3>Pengelolaan Limbah</h3>
+                    <ul class="list">
+                        <li>Sistem filtrasi sederhana untuk menyaring sisa malam dan pewarna sebelum dibuang.</li>
+                        <li>Pemanfaatan kembali sisa malam (lilin) untuk siklus produksi berikutnya.</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div>&copy; 2025 Galeri Batik Nusantara Virtual.</div>
+                <div>Pelestarian budaya melalui teknologi yang bertanggung jawab terhadap lingkungan.</div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#galeri">Galeri</a>
+                <a href="dekarbonisasi.html">Digital Decarbonization</a>
+                <a href="pengrajin.html">Profil Pengrajin</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ==================== DARK MODE TOGGLE ==================== */
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            
+            // Update icon SVG
+            const toggleBtn = document.getElementById('darkModeToggle');
+            if (toggleBtn) {
+                const sunIcon = toggleBtn.querySelector('.sun-icon');
+                const moonIcon = toggleBtn.querySelector('.moon-icon');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    if (sunIcon) sunIcon.style.display = 'none';
+                    if (moonIcon) moonIcon.style.display = 'block';
+                } else {
+                    if (sunIcon) sunIcon.style.display = 'block';
+                    if (moonIcon) moonIcon.style.display = 'none';
+                }
+            }
+        }
+
+        // Check dark mode preference saat load
+        window.addEventListener('load', () => {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                const toggleBtn = document.getElementById('darkModeToggle');
+                if (toggleBtn) {
+                    const sunIcon = toggleBtn.querySelector('.sun-icon');
+                    const moonIcon = toggleBtn.querySelector('.moon-icon');
+                    if (sunIcon) sunIcon.style.display = 'none';
+                    if (moonIcon) moonIcon.style.display = 'block';
+                }
+            }
+        });
+
+        // Refresh & Back button functionality
+        function refreshPage() {
+            window.location.reload(true);
+        }
+
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+    
+</body>
+</html>
